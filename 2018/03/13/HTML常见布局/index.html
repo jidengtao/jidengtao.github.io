@@ -1,0 +1,419 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Taylor">
+  
+  
+  
+  
+    <meta name="description" content="单列布局水平居中水平居中的页面布局中最为常见的一种布局形式，多出现于标题，以及内容区域的组织形式，下面介绍四种实现水平居中的方法（注：下面各个实例中实现的是child元素的对齐操作，child元素的父容器是parent元素）
+使用inline-block 和 text-align实现12.parent&#123;text-align: center;&#125;.child&#123;dis...">
+  
+  <title>HTML常见布局 [ Taylor_Tao ]</title>
+  
+  
+    <link rel="shortcut icon" href="/code.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2018/03/13/tab标签切换/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        tab标签切换
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2018/03/13/Css居中问题/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        Css居中问题
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="https://image.benlailife.com/images/bj/subject/2017/12/1225qyj/zhs.jpg"/>
+          <div id="homelink">Taylor_Tao</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">文章</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">分类</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">AboutMe</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>HTML常见布局</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2018-03-13</span>
+      
+        <span id = "post-title-updated">修改于 2018-03-13</span>
+      
+      
+      
+    </p>
+    
+    <h1 id="单列布局"><a href="#单列布局" class="headerlink" title="单列布局"></a>单列布局</h1><h2 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h2><p>水平居中的页面布局中最为常见的一种布局形式，多出现于标题，以及内容区域的组织形式，下面介绍四种实现水平居中的方法（注：下面各个实例中实现的是child元素的对齐操作，child元素的父容器是parent元素）</p>
+<h4 id="使用inline-block-和-text-align实现"><a href="#使用inline-block-和-text-align实现" class="headerlink" title="使用inline-block 和 text-align实现"></a>使用inline-block 和 text-align实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;text-align: center;&#125;</span><br><span class="line">.child&#123;display: inline-block;&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：兼容性好；<br>不足：需要同时设置子元素和父元素</p>
+<h4 id="使用margin-0-auto来实现"><a href="#使用margin-0-auto来实现" class="headerlink" title="使用margin:0 auto来实现"></a>使用margin:0 auto来实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.child&#123;width: 200px; margin: 0 auto;&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：兼容性好<br>缺点: 需要指定宽度</p>
+<h4 id="使用table实现"><a href="#使用table实现" class="headerlink" title="使用table实现"></a>使用table实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.child&#123;display: table; margin: 0 auto;&#125;</span><br></pre></td></tr></table></figure>
+<p>优点:只需要对自身进行设置<br>不足:IE6,7需要调整结构</p>
+<h4 id="使用绝对定位实现"><a href="#使用绝对定位实现" class="headerlink" title="使用绝对定位实现"></a>使用绝对定位实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;position:relative;&#125;</span><br><span class="line">/*或者实用margin-left的负值为盒子宽度的一半也可以实现，不过这样就必须知道盒子的宽度，但兼容性好*/</span><br><span class="line">.child&#123;position:absolute; left:50%; transform:translate(-50%);&#125;</span><br></pre></td></tr></table></figure>
+<p>不足：兼容性差,IE9及以上可用</p>
+<h4 id="实用flex布局实现"><a href="#实用flex布局实现" class="headerlink" title="实用flex布局实现"></a>实用flex布局实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*第一种方法*/</span><br><span class="line">.parent&#123;display:flex; justify-content:center;&#125;</span><br><span class="line">/*第二种方法*/</span><br><span class="line">.parent&#123;display:flex;&#125;</span><br><span class="line">.child&#123;margin:0 auto;&#125;</span><br></pre></td></tr></table></figure>
+<p>缺点：兼容性差，如果进行大面积的布局可能会影响效率</p>
+<h2 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h2><h4 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h4><blockquote>
+<p>我们都知道，每个人都有不同的嗜好，有的人喜欢吃甜食，有的人喜欢吃辣的东西，有的人不喜欢吃芹菜，有的人不喜欢吃羊肉等等。CSS中的有些元素也是这样，他们有的只对牛奶感兴趣，有的只喜欢吃坚果和果冻，而讨厌牛奶。而vertical-align呢，是个比较挑食的家伙，它只喜欢吃果冻，从小吃果冻长大，没有了果冻，它就会闹脾气，对你不理不睬。我称之为“果冻依赖型元素”，又称之为“inline-block依赖型元素”，也就是说,只有一个元素属于inline或是inline-block（table-cell也可以理解为inline-block水平）水平，其身上的vertical-align属性才会起作用。<br>在使用vertical-align的时候，由于对齐的基线是用行高的基线作为标记，故需要设置line-height或设置display:table-cell;</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/*第一种方法*/</span><br><span class="line">.parent&#123;display:table-cell;vertical-align:middle;height:20px;&#125;</span><br><span class="line">/*第二种方法*/</span><br><span class="line">.parent&#123;display:inline-block;vertical-align:middle;line-height:20px;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="实用绝对定位"><a href="#实用绝对定位" class="headerlink" title="实用绝对定位"></a>实用绝对定位</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;position:relative;&#125;</span><br><span class="line">.child&#123;positon:absolute; top:50%; transform:translate(0,-50%);&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="实用flex实现"><a href="#实用flex实现" class="headerlink" title="实用flex实现"></a>实用flex实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex; align-items:center;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="水平垂直全部居中"><a href="#水平垂直全部居中" class="headerlink" title="水平垂直全部居中"></a>水平垂直全部居中</h2><h4 id="利用vertical-align-text-align-inline-block实现"><a href="#利用vertical-align-text-align-inline-block实现" class="headerlink" title="利用vertical-align,text-align,inline-block实现"></a>利用vertical-align,text-align,inline-block实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:table-cell; vertical-align:middle; text-align:center;&#125;</span><br><span class="line">.child&#123;display:inline-block;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用绝对定位实现"><a href="#利用绝对定位实现" class="headerlink" title="利用绝对定位实现"></a>利用绝对定位实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;position:relative;&#125;</span><br><span class="line">.child&#123;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用flex实现"><a href="#利用flex实现" class="headerlink" title="利用flex实现"></a>利用flex实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex;justify-content:center;align-items:center;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h2><h3 id="左列定宽，右列自适应"><a href="#左列定宽，右列自适应" class="headerlink" title="左列定宽，右列自适应"></a>左列定宽，右列自适应</h3><p>该布局方式非常常见，适用于定宽的一侧常为导航，自适应的一侧为内容的布局</p>
+<p><img src="../images/bj_01.jpg" alt=""></p>
+<h4 id="利用float-margin实现"><a href="#利用float-margin实现" class="headerlink" title="利用float+margin实现"></a>利用float+margin实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;float:left;width:100px;&#125;</span><br><span class="line">.right&#123;margin-left:100px;&#125;</span><br></pre></td></tr></table></figure>
+<p>注：IE6会有3px的bug</p>
+<h4 id="利用float-margin-fix-实现"><a href="#利用float-margin-fix-实现" class="headerlink" title="利用float+margin(fix)实现"></a>利用float+margin(fix)实现</h4><p><img src="../images/bj_02.jpg" alt=""></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;width:100px;float:left;&#125;</span><br><span class="line">.right-fix&#123;width:100%;margin-left:-100px;float:right;&#125;</span><br><span class="line">.right&#123;margin-left:100px;&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right-fix"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="使用float-overflow实现"><a href="#使用float-overflow实现" class="headerlink" title="使用float+overflow实现"></a>使用float+overflow实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;width:100px;float:left;&#125;</span><br><span class="line">.right&#123;overflow:hidden;&#125;</span><br></pre></td></tr></table></figure>
+<p>overflow:hidden，触发bfc模式，浮动无法影响，隔离其他元素，IE6不支持，左侧left设置margin-left当作left与right之间的边距，右侧利用overflow:hidden 进行形成bfc模式<br>如果我们需要将两列设置为等高，可以用下述方法将“背景”设置为等高，其实并不是内容的等高</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;width:100px;float:left;&#125;</span><br><span class="line">.right&#123;overflow:hidden;&#125;</span><br><span class="line">.parent&#123;overflow:hidden;&#125;</span><br><span class="line">.left,.right&#123;padding-bottom:9999px;margin-bottom:-9999px;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用table实现-1"><a href="#使用table实现-1" class="headerlink" title="使用table实现"></a>使用table实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:table;table-layout:fixed;width:100%;&#125;</span><br><span class="line">.left&#123;width:100px;&#125;</span><br><span class="line">.right,.left&#123;display:table-cell;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="实用flex实现-1"><a href="#实用flex实现-1" class="headerlink" title="实用flex实现"></a>实用flex实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex;&#125;</span><br><span class="line">.left&#123;width:100px;&#125;</span><br><span class="line">.right&#123;flex:1;&#125;</span><br></pre></td></tr></table></figure>
+<p>利用右侧容器的flex:1，均分了剩余的宽度，也实现了同样的效果。而align-items 默认值为stretch，故二者高度相等</p>
+<h2 id="右列定宽，左列自适应"><a href="#右列定宽，左列自适应" class="headerlink" title="右列定宽，左列自适应"></a>右列定宽，左列自适应</h2><h4 id="实用float-margin实现"><a href="#实用float-margin实现" class="headerlink" title="实用float+margin实现"></a>实用float+margin实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;background:red;height:100px;margin:0 auto;&#125;</span><br><span class="line">.left&#123;background:green;margin-right:-100px;width:100%;float:left;&#125;</span><br><span class="line">.right&#123;float:right;width:100px;background:blue;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用table实现-2"><a href="#使用table实现-2" class="headerlink" title="使用table实现"></a>使用table实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:table;table-layout:fixed;width:100%;&#125;</span><br><span class="line">.left&#123;display:table-cell;&#125;</span><br><span class="line">.right&#123;width:100px;display:table-cell;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="实用flex实现-2"><a href="#实用flex实现-2" class="headerlink" title="实用flex实现"></a>实用flex实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex;&#125;</span><br><span class="line">.left&#123;flex:1;&#125;</span><br><span class="line">.right&#123;width:100px;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="两列定宽，一列自适应"><a href="#两列定宽，一列自适应" class="headerlink" title="两列定宽，一列自适应"></a>两列定宽，一列自适应</h3><p><img src="https://sfault-image.b0.upaiyun.com/238/876/2388764095-56331aea5cc12_articlex" alt="img"></p>
+<p>基本html结构为父容器为parent,自容器为left,center,right.其中，left,center定宽，right自适应</p>
+<h4 id="利用float-margin实现-1"><a href="#利用float-margin实现-1" class="headerlink" title="利用float+margin实现"></a>利用float+margin实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.left,.center&#123;float:left:width:200px;&#125;</span><br><span class="line">.right&#123;margin-left:400px;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用float-overflow实现"><a href="#利用float-overflow实现" class="headerlink" title="利用float+overflow实现"></a>利用float+overflow实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.left,.center&#123;float:left:width:200px;&#125;</span><br><span class="line">.right&#123;overflow:hidden;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用table实现"><a href="#利用table实现" class="headerlink" title="利用table实现"></a>利用table实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:table;table-layout:fixed;width:100%;&#125;</span><br><span class="line">.left,.center,.right&#123;display:table-cell;&#125;</span><br><span class="line">.left,.center&#123;width:200px;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用flex实现-1"><a href="#利用flex实现-1" class="headerlink" title="利用flex实现"></a>利用flex实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex;&#125;</span><br><span class="line">.left,.center&#123;width:100px;&#125;</span><br><span class="line">.right&#123;flex:1&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="两侧定宽，中栏自适应"><a href="#两侧定宽，中栏自适应" class="headerlink" title="两侧定宽，中栏自适应"></a>两侧定宽，中栏自适应</h3><p><img src="https://sfault-image.b0.upaiyun.com/306/076/3060769548-563320fcdfd0a_articlex" alt="img"></p>
+<h4 id="利用float-margin实现-2"><a href="#利用float-margin实现-2" class="headerlink" title="利用float+margin实现"></a>利用float+margin实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;width：100px;float:left;&#125;</span><br><span class="line">.center&#123;float:left;width:100%;margin-right:-200px;&#125;</span><br><span class="line">.right&#123;width:100px;float:right;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用table实现-1"><a href="#利用table实现-1" class="headerlink" title="利用table实现"></a>利用table实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;width:100%;display:table;table-layout:fixed&#125;</span><br><span class="line">.left,.center,.right&#123;display:table-cell;&#125;</span><br><span class="line">.left&#123;width:100px;&#125;</span><br><span class="line">.right&#123;width:100px;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用flex实现-2"><a href="#利用flex实现-2" class="headerlink" title="利用flex实现"></a>利用flex实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex;&#125;</span><br><span class="line">.left&#123;width:100px;&#125;</span><br><span class="line">.center&#123;flex:1;&#125;</span><br><span class="line">.right&#123;width:100px;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一列不定宽，一列自适应"><a href="#一列不定宽，一列自适应" class="headerlink" title="一列不定宽，一列自适应"></a>一列不定宽，一列自适应</h3><p><img src="https://sfault-image.b0.upaiyun.com/391/872/391872280-563327b88d330_articlex" alt="img"></p>
+<h4 id="利用float-overflow实现-1"><a href="#利用float-overflow实现-1" class="headerlink" title="利用float+overflow实现"></a>利用float+overflow实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;float:left;&#125;</span><br><span class="line">.right&#123;overflow:hidden;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用table实现-2"><a href="#利用table实现-2" class="headerlink" title="利用table实现"></a>利用table实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:table;table-layout:fixed;width:100%;&#125;</span><br><span class="line">.left&#123;width:0.1%;&#125;</span><br><span class="line">.left,.right&#123;display:table-cell;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用flex实现-3"><a href="#利用flex实现-3" class="headerlink" title="利用flex实现"></a>利用flex实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex;&#125;</span><br><span class="line">.right&#123;flex:1;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="多列等分布局"><a href="#多列等分布局" class="headerlink" title="多列等分布局"></a>多列等分布局</h3><p>多列等分布局常出现在内容中，多数为功能的，同阶级内容的并排显示等。</p>
+<p><img src="https://sfault-image.b0.upaiyun.com/371/672/3716725454-5633299343b18_articlex" alt="img"></p>
+<p>html结构如下所示</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"column"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="实用float实现"><a href="#实用float实现" class="headerlink" title="实用float实现"></a>实用float实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;margin-left:-20px&#125;/*假设列之间的间距为20px*/</span><br><span class="line">.column&#123;float:left;width:25%;padding-left:20px;box-sizing:border-box;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用table实现-3"><a href="#利用table实现-3" class="headerlink" title="利用table实现"></a>利用table实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent-fix&#123;margin-left:-20px;&#125;</span><br><span class="line">.parent&#123;display:table;table-layout:fixed;width:100%;&#125;</span><br><span class="line">.column&#123;display:table-cell;padding-left:20px;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="利用flex实现-4"><a href="#利用flex实现-4" class="headerlink" title="利用flex实现"></a>利用flex实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex;&#125;</span><br><span class="line">.column&#123;flex:1;&#125;</span><br><span class="line">.column+.column&#123;margin-left:20px;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="九宫格布局"><a href="#九宫格布局" class="headerlink" title="九宫格布局"></a>九宫格布局</h3><h4 id="使用table实现-3"><a href="#使用table实现-3" class="headerlink" title="使用table实现"></a>使用table实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:table;table-layout:fixed;width:100%;&#125;</span><br><span class="line">.row&#123;display:table-row;&#125;</span><br><span class="line">.item&#123;display:table-cell;width:33.3%;height:200px;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="实用flex实现-3"><a href="#实用flex实现-3" class="headerlink" title="实用flex实现"></a>实用flex实现</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex;flex-direction:column;&#125;</span><br><span class="line">.row&#123;height:100px;display:flex;&#125;</span><br><span class="line">.item&#123;width:100px;background:red;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="全屏布局"><a href="#全屏布局" class="headerlink" title="全屏布局"></a>全屏布局</h2><p><img src="https://sfault-image.b0.upaiyun.com/226/456/2264569447-56334432a3b21_articlex" alt="img"></p>
+<h3 id="利用绝对定位实现-1"><a href="#利用绝对定位实现-1" class="headerlink" title="利用绝对定位实现"></a>利用绝对定位实现</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span>top<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bottom"</span>&gt;</span>bottom<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">html,body,parent&#123;height:100%;overflow:hidden;&#125;</span><br><span class="line">.top&#123;position:absolute:top:0;left:0;right:0;height:100px;&#125;</span><br><span class="line">.left&#123;position:absolute;top:100px;left:0;bottom:50px;width:200px;&#125;</span><br><span class="line">.right&#123;position:absolute;overflow:auto;left:200px;right:0;top:100px;bottom:50px;&#125;</span><br><span class="line">.bottom&#123;position:absolute;left:0;right:0;bottom:0;height:50px;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="利用flex实现-5"><a href="#利用flex实现-5" class="headerlink" title="利用flex实现"></a>利用flex实现</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"parent"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"top"</span>&gt;</span>top<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"middle"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span>left<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span>right<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"bottom"</span>&gt;</span>bottom<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.parent&#123;display:flex;flex-direction:column;&#125;</span><br><span class="line">.top&#123;height:100px;&#125;</span><br><span class="line">.bottom&#123;height:50px;&#125;</span><br><span class="line">.middle&#123;flex:1;display:flex;&#125;</span><br><span class="line">.left&#123;width:200px;&#125;</span><br><span class="line">.right&#123;flex:1;overflow:auto;&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="响应式布局"><a href="#响应式布局" class="headerlink" title="响应式布局"></a>响应式布局</h2><h4 id="meta标签的实用"><a href="#meta标签的实用" class="headerlink" title="meta标签的实用"></a>meta标签的实用</h4><p>设置布局宽度等于设备宽度，布局viewport等于度量viewport</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h3><blockquote>
+<p>HTML 4和CSS 2目前支持为不同的媒体类型设定专有的样式表, 比如, 一个页面在屏幕上显示时使用无衬线字体, 而在打印时则使用衬线字体, screen 和 print 是两种已定义的媒体类型, 媒体查询让样式表有更强的针对性, 扩展了媒体类型的功能;媒体查询由媒体类型和一个或多个检测媒体特性的条件表达式组成, 媒体查询中可用于检测的媒体特性有width、height和color（等）, 使用媒体查询, 可以在不改变页面内容的情况下, 为特定的一些输出设备定制显示效果。</p>
+</blockquote>
+<p>转载：<a href="https://segmentfault.com/a/1190000003931851" target="_blank" rel="noopener">https://segmentfault.com/a/1190000003931851</a></p>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#单列布局"><span class="toc-text">单列布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#水平居中"><span class="toc-text">水平居中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用inline-block-和-text-align实现"><span class="toc-text">使用inline-block 和 text-align实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用margin-0-auto来实现"><span class="toc-text">使用margin:0 auto来实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用table实现"><span class="toc-text">使用table实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用绝对定位实现"><span class="toc-text">使用绝对定位实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实用flex布局实现"><span class="toc-text">实用flex布局实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#垂直居中"><span class="toc-text">垂直居中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vertical-align"><span class="toc-text">vertical-align</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实用绝对定位"><span class="toc-text">实用绝对定位</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实用flex实现"><span class="toc-text">实用flex实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#水平垂直全部居中"><span class="toc-text">水平垂直全部居中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用vertical-align-text-align-inline-block实现"><span class="toc-text">利用vertical-align,text-align,inline-block实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用绝对定位实现"><span class="toc-text">利用绝对定位实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用flex实现"><span class="toc-text">利用flex实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多列布局"><span class="toc-text">多列布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#左列定宽，右列自适应"><span class="toc-text">左列定宽，右列自适应</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用float-margin实现"><span class="toc-text">利用float+margin实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用float-margin-fix-实现"><span class="toc-text">利用float+margin(fix)实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用float-overflow实现"><span class="toc-text">使用float+overflow实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用table实现-1"><span class="toc-text">使用table实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实用flex实现-1"><span class="toc-text">实用flex实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#右列定宽，左列自适应"><span class="toc-text">右列定宽，左列自适应</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实用float-margin实现"><span class="toc-text">实用float+margin实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#使用table实现-2"><span class="toc-text">使用table实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实用flex实现-2"><span class="toc-text">实用flex实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两列定宽，一列自适应"><span class="toc-text">两列定宽，一列自适应</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用float-margin实现-1"><span class="toc-text">利用float+margin实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用float-overflow实现"><span class="toc-text">利用float+overflow实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用table实现"><span class="toc-text">利用table实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用flex实现-1"><span class="toc-text">利用flex实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#两侧定宽，中栏自适应"><span class="toc-text">两侧定宽，中栏自适应</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用float-margin实现-2"><span class="toc-text">利用float+margin实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用table实现-1"><span class="toc-text">利用table实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用flex实现-2"><span class="toc-text">利用flex实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一列不定宽，一列自适应"><span class="toc-text">一列不定宽，一列自适应</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#利用float-overflow实现-1"><span class="toc-text">利用float+overflow实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用table实现-2"><span class="toc-text">利用table实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用flex实现-3"><span class="toc-text">利用flex实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多列等分布局"><span class="toc-text">多列等分布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#实用float实现"><span class="toc-text">实用float实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用table实现-3"><span class="toc-text">利用table实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#利用flex实现-4"><span class="toc-text">利用flex实现</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#九宫格布局"><span class="toc-text">九宫格布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用table实现-3"><span class="toc-text">使用table实现</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实用flex实现-3"><span class="toc-text">实用flex实现</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全屏布局"><span class="toc-text">全屏布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#利用绝对定位实现-1"><span class="toc-text">利用绝对定位实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#利用flex实现-5"><span class="toc-text">利用flex实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式布局"><span class="toc-text">响应式布局</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#meta标签的实用"><span class="toc-text">meta标签的实用</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#媒体查询"><span class="toc-text">媒体查询</span></a></li></ol></li></ol></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2018/03/13/tab标签切换/" class="prev">&larr; 上一篇 tab标签切换</a>
+  
+
+  
+
+  
+    <a href="/2018/03/13/Css居中问题/" class="next">下一篇 Css居中问题 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Taylor using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://image.benlailife.com/images/bj/subject/2017/12/1225qyj/zhs.jpg">
+    <p id="description">涛涛大杂烩</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/stiekel/hexo-theme-random">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/Jiddengtao">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://weibo.com/Jidengtao">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.douban.com/people/Jidengtao">
+        
+          <i class="icon iconfont douban">&#xe60f;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.zhihu.com/people/ji-deng-tao/activities">
+        
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://weibo.com/Jidengtao">
+        
+          <i class="icon iconfont rss">&#xe60e;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":9000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "a0d8ef";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+

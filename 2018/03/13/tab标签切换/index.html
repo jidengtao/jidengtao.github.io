@@ -1,0 +1,362 @@
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="author" content="Taylor">
+  
+  
+  
+  
+    <meta name="description" content="一. Tab选项卡有多种,点击切换,滑过切换,延时切换,自动切换 - 基于JSHTML结构123456789101112131415161718&lt;div id="notice" class="notice"&gt;        &lt;div id="notice-tit" class="notice-tit"&gt;            &lt;ul&gt;           ...">
+  
+  <title>tab标签切换 [ Taylor_Tao ]</title>
+  
+  
+    <link rel="shortcut icon" href="/code.ico">
+  
+  
+  <link rel="stylesheet" href="/css/random.css">
+<link rel="stylesheet" href="/css/vegas.min.css">
+<link rel="stylesheet" href="/css/highlight-railscasts.css">
+<link rel="stylesheet" href="/css/jquery.fancybox.css">
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+<link rel="stylesheet" href="/css/jquery.fancybox-thumbs.css">
+<link rel="stylesheet" href="/css/plyr.css">
+  
+</head>
+
+<body>
+<div class="side-navigate hide-area">
+  
+    <div class="item prev">
+      <a href="/2018/03/13/hexo指令/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        hexo指令
+      </div>
+    </div>
+  
+  
+    <div class="item next">
+      <a href="/2018/03/13/HTML常见布局/">
+        <div class="item-icon"></div>
+      </a>
+      <div class="item-title">
+        HTML常见布局
+      </div>
+    </div>
+  
+</div>
+<div id="outer-container" class="hide-area">
+<div id="container">
+  <div id="menu-outer" class="slide-down">
+    <div id="menu-inner">
+      <div id="brand">
+        
+        <a onClick="openUserCard()">
+          <img id="avatar" src="https://image.benlailife.com/images/bj/subject/2017/12/1225qyj/zhs.jpg"/>
+          <div id="homelink">Taylor_Tao</div>
+        </a>
+      </div>
+      <div id="menu-list">
+        <ul>
+        
+        
+          
+            <li>
+          
+            <a href="/index.html">首页</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/archives">文章</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/tags">标签</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/categories">分类</a>
+            
+          </li>
+        
+          
+            <li>
+          
+            <a href="/about">AboutMe</a>
+            
+          </li>
+        
+        </ul>
+      </div>
+      <div id="show-menu">
+        <button>Menu</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="content-outer">
+    <div id="content-inner">
+      
+      
+  <article id="post">
+    <h1>tab标签切换</h1>
+    <p class="page-title-sub">
+      <span id = "post-title-date">撰写于 2018-03-13</span>
+      
+        <span id = "post-title-updated">修改于 2018-03-13</span>
+      
+      
+      
+    </p>
+    
+    <h4 id="一-Tab选项卡有多种-点击切换-滑过切换-延时切换-自动切换-基于JS"><a href="#一-Tab选项卡有多种-点击切换-滑过切换-延时切换-自动切换-基于JS" class="headerlink" title="一. Tab选项卡有多种,点击切换,滑过切换,延时切换,自动切换 - 基于JS"></a>一. Tab选项卡有多种,点击切换,滑过切换,延时切换,自动切换 - 基于JS</h4><h6 id="HTML结构"><a href="#HTML结构" class="headerlink" title="HTML结构"></a>HTML结构</h6><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"notice"</span> <span class="attr">class</span>=<span class="string">"notice"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"notice-tit"</span> <span class="attr">class</span>=<span class="string">"notice-tit"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"select"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span>&gt;</span>公告<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span>&gt;</span>规则<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span>&gt;</span>论坛<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span>&gt;</span>安全<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:;"</span>&gt;</span>公益<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"notice-con"</span> <span class="attr">class</span>=<span class="string">"notice-con"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mod"</span> <span class="attr">style</span>=<span class="string">"display:block"</span>&gt;</span> 这是第一 <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mod"</span>&gt;</span>这是第二<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mod"</span>&gt;</span>这是第三<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mod"</span>&gt;</span>这是第四<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mod"</span>&gt;</span>这是第五<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h6 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h6><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">*&#123;<span class="attribute">margin</span>:<span class="number">0</span>;<span class="attribute">padding</span>:<span class="number">0</span>;<span class="attribute">list-style</span>:none;<span class="attribute">font-size</span>:<span class="number">12px</span>;&#125;</span><br><span class="line"><span class="selector-class">.notice</span>&#123;<span class="attribute">width</span>:<span class="number">298px</span>;<span class="attribute">height</span>:<span class="number">98px</span>;<span class="attribute">margin</span>:<span class="number">10px</span>;<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#eee</span>;<span class="attribute">overflow</span>:hidden;&#125;</span><br><span class="line"><span class="selector-class">.notice-tit</span>&#123;<span class="attribute">height</span>:<span class="number">27px</span>;<span class="attribute">position</span>:relative;<span class="attribute">background</span>:<span class="number">#f7f7f7</span>;&#125;</span><br><span class="line"><span class="selector-class">.notice-tit</span> <span class="selector-tag">ul</span>&#123;<span class="attribute">position</span>:absolute;<span class="attribute">width</span>:<span class="number">301px</span>;<span class="attribute">left</span>:-<span class="number">1px</span>;&#125;</span><br><span class="line"><span class="selector-class">.notice-tit</span> <span class="selector-tag">li</span>&#123;<span class="attribute">float</span>:left;<span class="attribute">background</span>:<span class="number">#f7f7f7</span>;<span class="attribute">width</span>:<span class="number">58px</span>;<span class="attribute">text-align</span>:center;<span class="attribute">height</span>:<span class="number">26px</span>;<span class="attribute">line-height</span>:<span class="number">26px</span>;<span class="attribute">padding</span>:<span class="number">0</span> <span class="number">1px</span>;<span class="attribute">overflow</span>:hidden;<span class="attribute">border-bottom</span>:<span class="number">1px</span> solid <span class="number">#eee</span>;&#125;</span><br><span class="line"><span class="selector-class">.notice-tit</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span><span class="selector-pseudo">:link</span>,<span class="selector-class">.notice-tit</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>&#123;<span class="attribute">text-decoration</span>:none;<span class="attribute">color</span>:<span class="number">#000</span>;&#125;</span><br><span class="line"><span class="selector-class">.notice-tit</span> <span class="selector-tag">li</span> <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>&#123;<span class="attribute">color</span>:<span class="number">#f90</span>;&#125;</span><br><span class="line"><span class="selector-class">.notice-tit</span> <span class="selector-tag">li</span><span class="selector-class">.select</span>&#123;<span class="attribute">background</span>:<span class="number">#fff</span>;<span class="attribute">border-bottom-color</span>:<span class="number">#fff</span>;<span class="attribute">border-left</span>:<span class="number">1px</span> solid <span class="number">#eee</span>;<span class="attribute">border-right</span>:<span class="number">1px</span> solid <span class="number">#eee</span>;<span class="attribute">padding</span>:<span class="number">0</span>;<span class="attribute">font-weight</span>:bold;&#125;</span><br><span class="line"><span class="selector-class">.notice-con</span> <span class="selector-class">.mod</span>&#123;<span class="attribute">margin</span>:<span class="number">10px</span> <span class="number">10px</span> <span class="number">10px</span> <span class="number">19px</span>;<span class="attribute">display</span>:none;&#125;</span><br><span class="line"><span class="selector-class">.notice-con</span> <span class="selector-class">.mod</span> <span class="selector-tag">li</span>&#123;<span class="attribute">float</span>:left;<span class="attribute">width</span>:<span class="number">134px</span>;<span class="attribute">height</span>:<span class="number">25px</span>;<span class="attribute">overflow</span>:hidden;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="点击切换-和-滑过切换-—直接更换事件即可"><a href="#点击切换-和-滑过切换-—直接更换事件即可" class="headerlink" title="点击切换 和 滑过切换 —直接更换事件即可"></a>点击切换 和 滑过切换 —直接更换事件即可</h4></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">typeof</span> id===<span class="string">'string'</span>?<span class="built_in">document</span>.getElementById(id):id;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">//获取鼠标滑过活点击的标签和要切换内容的元素</span></span><br><span class="line">    <span class="keyword">var</span> titles=$(<span class="string">"notice-tit"</span>).getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">    <span class="keyword">var</span> divs=$(<span class="string">"notice-con"</span>).getElementsByTagName(<span class="string">"div"</span>);</span><br><span class="line">    <span class="keyword">if</span>(titles.length!=divs.length)&#123;<span class="keyword">return</span> <span class="literal">false</span>;&#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;titles.length;i++)&#123;</span><br><span class="line">        titles[i].id=i;</span><br><span class="line">        titles[i].onclick=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">var</span> g=<span class="number">0</span>;g&lt;titles.length;g++)&#123;</span><br><span class="line">                titles[g].className=<span class="string">""</span>;</span><br><span class="line">                divs[g].style.display=<span class="string">'none'</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">this</span>.className=<span class="string">'select'</span>;</span><br><span class="line">            divs[<span class="keyword">this</span>.id].style.display=<span class="string">"block"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="延时切换"><a href="#延时切换" class="headerlink" title="延时切换"></a>延时切换</h4></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">id</span>)</span>&#123;<span class="keyword">return</span> <span class="keyword">typeof</span> id===<span class="string">'string'</span>?<span class="built_in">document</span>.getElementById(id):id; &#125;</span><br><span class="line">   <span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> timer=<span class="literal">null</span>;</span><br><span class="line">       <span class="keyword">var</span> lis=$(<span class="string">"notice-tit"</span>).getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">       <span class="keyword">var</span> divs=$(<span class="string">"notice-con"</span>).getElementsByTagName(<span class="string">"div"</span>);</span><br><span class="line">       <span class="keyword">if</span>(lis.length!=divs.length)&#123;<span class="keyword">return</span> <span class="literal">false</span>;&#125;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;lis.length;i++)&#123;</span><br><span class="line">           lis[i].id=i;</span><br><span class="line">           lis[i].onmouseover=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">               <span class="keyword">if</span>(timer)&#123;clearTimeout(timer);timer=<span class="literal">null</span>;&#125;</span><br><span class="line">               <span class="keyword">var</span> that=<span class="keyword">this</span>;</span><br><span class="line">               timer=setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                   <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;lis.length;j++)&#123;</span><br><span class="line">                       lis[j].className=<span class="string">""</span>;</span><br><span class="line">                       divs[j].style.display=<span class="string">"none"</span>;</span><br><span class="line">                   &#125; </span><br><span class="line">                   lis[that.id].className=<span class="string">'select'</span>;</span><br><span class="line">                   divs[that.id].style.display=<span class="string">"none"</span>;</span><br><span class="line">               &#125;,<span class="number">500</span>)</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><h4 id="自动切换"><a href="#自动切换" class="headerlink" title="自动切换"></a>自动切换</h4></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">$</span>(<span class="params">id</span>)</span>&#123;  <span class="keyword">return</span> <span class="keyword">typeof</span> id===<span class="string">'string'</span>?<span class="built_in">document</span>.getElementById(id):id; &#125;</span><br><span class="line">   <span class="built_in">window</span>.onload=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">       <span class="keyword">var</span> index=<span class="number">0</span>;<span class="comment">//标签的索引</span></span><br><span class="line">       <span class="keyword">var</span> timer=<span class="literal">null</span>;</span><br><span class="line">       <span class="keyword">var</span> lis=$(<span class="string">"notice-tit"</span>).getElementsByTagName(<span class="string">"li"</span>);</span><br><span class="line">       <span class="keyword">var</span> divs=$(<span class="string">"notice-con"</span>).getElementsByTagName(<span class="string">"div"</span>);</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;lis.length;i++)&#123;</span><br><span class="line">           lis[i].id=i;</span><br><span class="line">           lis[i].onmouseover=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">               clearInterval(timer);</span><br><span class="line">               index=<span class="keyword">this</span>.id;</span><br><span class="line">               change()</span><br><span class="line">           &#125;</span><br><span class="line">           lis[i].onmouseout=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">               index=<span class="keyword">this</span>.id;</span><br><span class="line">               timer=setInterval(autoPlay,<span class="number">1000</span>)</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span>(timer)&#123;clearInterval(timer);timer=<span class="literal">null</span>;&#125;</span><br><span class="line">       timer=setInterval(autoPlay,<span class="number">1000</span>);</span><br><span class="line">       <span class="function"><span class="keyword">function</span> <span class="title">autoPlay</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">           index++;</span><br><span class="line">           <span class="keyword">if</span>(index&gt;=lis.length)&#123;index=<span class="number">0</span>; &#125;</span><br><span class="line">           change()</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">           <span class="keyword">for</span>(<span class="keyword">var</span> j=<span class="number">0</span>;j&lt;lis.length;j++)&#123;</span><br><span class="line">               lis[j].className=<span class="string">''</span>;</span><br><span class="line">               divs[j].style.display=<span class="string">"none"</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           lis[index].className=<span class="string">'select'</span>;</span><br><span class="line">           divs[index].style.display=<span class="string">"block"</span>;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="二-Tab标签切换–基于JQ"><a href="#二-Tab标签切换–基于JQ" class="headerlink" title="二.Tab标签切换–基于JQ"></a>二.Tab标签切换–基于JQ</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">$().ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> tabs=$(<span class="string">"ul li"</span>);</span><br><span class="line">    <span class="keyword">var</span> content=$(<span class="string">"section div"</span>);</span><br><span class="line">    tabFn1(tabs,content,<span class="string">'click'</span>);</span><br><span class="line">    tabFn2(tabs,content,<span class="string">'click'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//方法一</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">tabFn1</span>(<span class="params">tabNav,Con,aEvent</span>)</span>&#123;</span><br><span class="line">        tabNav.removeClass(<span class="string">'current'</span>).eq(<span class="number">0</span>).addClass(<span class="string">'current'</span>);</span><br><span class="line">        Con.hide().eq(<span class="number">0</span>).show();</span><br><span class="line">        tabNav.on(aEvent,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            tabNav.removeClass(<span class="string">'current'</span>);</span><br><span class="line">            $(<span class="keyword">this</span>).addClass(<span class="string">'current'</span>);</span><br><span class="line">            Con.hide().eq($(<span class="keyword">this</span>).index()).show();</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法二</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">tabFn2</span>(<span class="params">tabNav,Con,aEvent</span>)</span>&#123;</span><br><span class="line">        tabNav.removeClass(<span class="string">'current'</span>).eq(<span class="number">0</span>).addClass(<span class="string">'current'</span>);</span><br><span class="line">        Con.hide().eq(<span class="number">0</span>).show();</span><br><span class="line">        tabNav.each(<span class="function"><span class="keyword">function</span>(<span class="params">index</span>)</span>&#123;</span><br><span class="line">            $(<span class="keyword">this</span>).on(aEvent,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                tabNav.removeClass(<span class="string">'current'</span>);</span><br><span class="line">                 $(<span class="keyword">this</span>).addClass(<span class="string">'current'</span>);</span><br><span class="line">                Con.hide().eq(index).show();</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+  </article>
+  <div class="random-toc-area">
+  <button class="btn-hide-toc btn-hide-toc-show" style="display: none" onclick="TOCToggle()">显示目录</button>
+  <button class="btn-hide-toc btn-hide-toc-hide" onclick="TOCToggle()">隐藏目录</button>
+  <div class="random-toc">
+    <h2>目录</h2>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#一-Tab选项卡有多种-点击切换-滑过切换-延时切换-自动切换-基于JS"><span class="toc-text">一. Tab选项卡有多种,点击切换,滑过切换,延时切换,自动切换 - 基于JS</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#HTML结构"><span class="toc-text">HTML结构</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#CSS"><span class="toc-text">CSS</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#点击切换-和-滑过切换-—直接更换事件即可"><span class="toc-text">点击切换 和 滑过切换 —直接更换事件即可</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#延时切换"><span class="toc-text">延时切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动切换"><span class="toc-text">自动切换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二-Tab标签切换–基于JQ"><span class="toc-text">二.Tab标签切换–基于JQ</span></a></li></ol>
+  </div>
+</div>
+
+  
+<nav id="pagination">
+  
+    <a href="/2018/03/13/hexo指令/" class="prev">&larr; 上一篇 hexo指令</a>
+  
+
+  
+
+  
+    <a href="/2018/03/13/HTML常见布局/" class="next">下一篇 HTML常见布局 &rarr;</a>
+  
+</nav>
+
+  <!-- JiaThis Button BEGIN -->
+
+<!-- JiaThis Button END -->
+
+
+      
+      
+    </div>
+  </div>
+
+  <div id="bottom-outer">
+    <div id="bottom-inner">
+      Site by Taylor using
+      <a href="http://hexo.io">Hexo</a> & <a href="https://github.com/stiekel/hexo-theme-random">Random</a>
+      <br>
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<div id="user-card">
+  <div class="center-field">
+    <img class="avatar" src="https://image.benlailife.com/images/bj/subject/2017/12/1225qyj/zhs.jpg">
+    <p id="description">涛涛大杂烩</p>
+    <ul class="social-icon">
+  
+  
+    <li>
+      <a href="https://github.com/stiekel/hexo-theme-random">
+        
+          <i class="icon iconfont github">&#xe606;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://coding.net/u/Jiddengtao">
+        
+          <i class="icon iconfont coding">&#xe607;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://weibo.com/Jidengtao">
+        
+          <i class="icon iconfont weibo">&#xe602;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://www.douban.com/people/Jidengtao">
+        
+          <i class="icon iconfont douban">&#xe60f;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="https://www.zhihu.com/people/ji-deng-tao/activities">
+        
+          <i class="icon iconfont zhihu">&#xe60b;</i>
+        
+      </a>
+    </li>
+  
+    <li>
+      <a href="http://weibo.com/Jidengtao">
+        
+          <i class="icon iconfont rss">&#xe60e;</i>
+        
+      </a>
+    </li>
+  
+</ul>
+  </div>
+</div>
+
+
+<div id="btn-view">Hide</div>
+
+<script>
+// is trigger analytics / tongji script
+var isIgnoreHost = false;
+
+if(window && window.location && window.location.host) {
+  isIgnoreHost = ["localhost","127.0.0.1"].some(function(address){
+    return 0 === window.location.host.indexOf(address);
+  });
+}
+
+var isTriggerAnalytics = !( true && isIgnoreHost );
+
+</script>
+
+
+
+
+  
+  
+    <script src="/js/jquery-2.2.3.min.js"></script>
+  
+    <script src="/js/vegas.min.js"></script>
+  
+    <script src="/js/random.js"></script>
+  
+    <script src="/js/highlight.pack.js"></script>
+  
+    <script src="/js/jquery.mousewheel.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox.pack.js"></script>
+  
+    <script src="/js/jquery.fancybox-thumbs.js"></script>
+  
+    <script src="/js/plyr.js"></script>
+  
+
+<script>
+
+  // fancybox
+  var backgroundImages = [];
+  
+  $('#post').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox') || $(this).parent().hasClass('fancybox-thumb')) return;
+      var alt = this.alt || this.title;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'post' + i);
+    });
+  });
+  $(".fancybox").fancybox();
+
+var vegasConfig = {"preload­Image":true,"transition":["slideLeft2","slideRight2","flash2"],"timer":true,"delay":9000,"shuffle":true,"count":28};
+var unsplashConfig = {"gravity":"north"};
+// is show background images
+var turnoffBackgroundImage = false;
+
+
+
+  turnoffBackgroundImage = true;
+
+
+var backgroundColor = "a0d8ef";
+
+$(".fancybox-thumb").fancybox({
+  prevEffect: 'none',
+  nextEffect: 'none',
+  helpers: {
+    title: {
+      type: 'outside'
+    },
+    thumbs: {
+      width: 50,
+      height: 50
+    }
+  }
+});
+
+// show video with plyr
+$(".video-container iframe").each(function(i){
+  var url = $(this).attr('src');
+  var id = url.split('/').pop();
+  var plyrContainer = document.createElement('div');
+  plyrContainer.className = 'plyr';
+  var plyrElement = document.createElement('div');
+  plyrElement.dataset.videoId = id;
+  switch(true) {
+    case url.search('youtube.com') >= 0:
+      plyrElement.dataset.type = 'youtube';
+      break;
+    case url.search('vimeo.com') >= 0:
+      plyrElement.dataset.type = 'vimeo';
+      break;
+    default:
+      return;
+  };
+  plyrContainer.appendChild(plyrElement);
+  $(this).parent().html(plyrContainer);
+});
+plyr.setup('.plyr', {iconUrl: '/css/sprite.svg'});
+</script>
+</body>
+</html>
+
